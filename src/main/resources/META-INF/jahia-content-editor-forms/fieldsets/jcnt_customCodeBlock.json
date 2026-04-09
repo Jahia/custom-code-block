@@ -1,0 +1,29 @@
+{
+  "name": "jnt:customCodeBlock",
+  "fields": [
+    {
+      "name": "html",
+      "selectorType": "CodeMirror"
+    },
+    {
+      "name": "css",
+      "selectorType": "CodeMirror",
+      "selectorOptions": [
+        {
+          "name": "mode",
+          "value": "css"
+        }
+      ]
+    },
+    {
+      "name": "js",
+      "selectorType": "CodeMirror",
+      "selectorOptions": [
+        {
+          "name": "mode",
+          "value": "javascript"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.jahia.modules</groupId>
+        <artifactId>jahia-modules</artifactId>
+        <version>8.2.0.0</version>
+    </parent>
+
+    <groupId>org.jahiacommunity.modules</groupId>
+    <artifactId>custom-code-block</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>bundle</packaging>
+    <name>Custom Code Block</name>
+    <description>Jahia module providing a CustomCodeBlock component with HTML, CSS and JS fields</description>
+
+    <scm>
+        <connection>scm:git:git@github.com:Jahia/custom-code-block.git</connection>
+        <developerConnection>scm:git:git@github.com:Jahia/custom-code-block.git</developerConnection>
+        <url>https://github.com/Jahia/custom-code-block</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <properties>
+        <jahia-depends>default,codemirror-editor</jahia-depends>
+        <jahia.plugin.version>6.</jahia.plugin.version>
+        <jahia-module-type>module</jahia-module-type>
+        <jahia-resource-bundle>resources.CustomCodeBlock</jahia-resource-bundle>
+        <version.compiler.plugin>3.3</version.compiler.plugin>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>jahia-public</id>
+            <name>Jahia Public Repository</name>
+            <url>https://devtools.jahia.com/nexus/content/groups/public</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>jahiaRepository</id>
+            <name>Jahia's Maven Repository</name>
+            <url>https://maven.jahia.org/maven2</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>jahiaRepository</id>
+            <name>Jahia's Maven Repository</name>
+            <url>https://maven.jahia.org/maven2</url>
+        </pluginRepository>
+    </pluginRepositories>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Jahia-Depends>${jahia-depends}</Jahia-Depends>
+                        <Jahia-Module-Type>${jahia-module-type}</Jahia-Module-Type>
+                        <Jahia-Resource-Bundle>${jahia-resource-bundle}</Jahia-Resource-Bundle>
+                    </instructions>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${version.compiler.plugin}</version>
+                <configuration>
+                    <compilerArgument>-parameters</compilerArgument>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
