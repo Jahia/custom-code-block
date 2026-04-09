@@ -6,7 +6,7 @@ Jahia module providing a `jnt:customCodeBlock` component that allows editors to 
 
 - Jahia 8.2.0.0+
 - Java 11
-- [CodeMirror Editor](https://store.jahia.com/contents/modules-repository/org/jahia/modules/codemirror-editor.html) module
+- [CodeMirror Editor](https://store.jahia.com/contents/modules-repository/org/jahia/se/modules/codemirror-editor.html) module
 
 ## Node type
 
