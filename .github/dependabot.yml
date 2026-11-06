@@ -4,3 +4,10 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      maven-dependencies:
+        patterns:
+          - "*"
+    ignore:
+      # org.jahia.* (incl. the jahia-modules parent) defines the target Jahia version
+      - dependency-name: "org.jahia.*"
