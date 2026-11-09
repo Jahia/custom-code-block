@@ -14,7 +14,7 @@ ${css}
 </style>
 </template:addResources>
 </c:if>
-${currentNode.properties.html.string}
+${html}
 <c:if test="${! empty js}">
 <template:addResources targetTag="body">
 <script>
@@ -22,8 +22,28 @@ ${js}
 </script>
 </template:addResources>
 </c:if>
-<c:if test="${renderContext.editMode}">
-    <c:if test="${empty functions:removeHtmlTags(html)}">
-        ${currentNode.name}
-    </c:if>
+<c:if test="${renderContext.editMode && (empty html || empty functions:removeHtmlTags(html))}">
+<template:addResources>
+<style>
+.jnt-custom-code-block__empty-notice {
+    border: 2px dashed #f90;
+    padding: 1rem;
+    color: #595959;
+    font-style: italic;
+    background: #fff8e1;
+}
+</style>
+</template:addResources>
+    <c:choose>
+        <c:when test="${empty css && empty js}">
+            <p class="jnt-custom-code-block__empty-notice">
+                [Empty custom code block: <c:out value="${currentNode.name}"/>]
+            </p>
+        </c:when>
+        <c:otherwise>
+            <p class="jnt-custom-code-block__empty-notice">
+                [Custom code block — CSS/JS only: <c:out value="${currentNode.name}"/>]
+            </p>
+        </c:otherwise>
+    </c:choose>
 </c:if>
